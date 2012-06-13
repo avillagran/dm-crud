@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Crud
 
   module HookMethods
@@ -113,7 +114,8 @@ module Crud
       end
       
       def after_fail
-        logger.info "> Crud::after_fail" if @crud_options[:log]
+        logger.info "> Crud::after_fail errors: #{@item.errors.inspect}" if @crud_options[:log]
+        
         unless request.xhr?
           render :action => request.post? ? 'new' : 'edit'
         else          
