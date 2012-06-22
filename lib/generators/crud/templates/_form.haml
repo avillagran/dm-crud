@@ -1,0 +1,7 @@
+= simple_form_for @item, :url => @item.new? ? <%= model.pluralize %>_path : @item  do |f|
+    
+    
+    = f.input :name
+    
+    %br
+    = f.submit 'Save', :class => 'aSubmit aS_ok right'

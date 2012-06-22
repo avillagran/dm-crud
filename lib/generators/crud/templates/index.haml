@@ -1,0 +1,35 @@
+#mainTitle.col16
+    %h3
+        %span 
+            List of <%= model.pluralize %>
+
+.tableOptions.clearfix
+    = link_to 'New', new_<%= model.singularize %>_path, class: "aButton right"
+
+
+%table#example.display
+    %thead
+        %tr
+            %th ID
+            %th Name
+            %th Actions
+    %tbody
+        - @items.each do |i|
+            %tr
+                %td= i.id
+                %td= i.name
+                %td
+                    .right
+                        = button_to 'Delete', i, :confirm => "Are you sure?", method: :delete
+                    .right
+                        = link_to 'Edit', edit_<%= model.singularize %>_path(i)
+                        |
+                        = link_to 'Show'. <%= model.singularize %>_path(i)
+                    
+
+:javascript
+    $(document).ready(function(){
+        $('#example').dataTable({"bJQueryUI": true, "sPaginationType": "full_numbers", "iDisplayLength": 25, "oLanguage": {
+                "sUrl": "/table_translation.js"
+            }});
+    });                

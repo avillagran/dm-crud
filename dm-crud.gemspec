@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{dm-crud is a dynamic resource controller for Rails 3 and DataMapper}
   s.description = %q{Use with datamapper and Ruby on Rails 3}
 
-  s.files         = `git ls-files`.split("\n")
+  s.files         = Dir["{lib}/**/*"]
   #s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
