@@ -1,7 +1,7 @@
-= simple_form_for @item, :url => @item.new? ? <%= model.pluralize %>_path : @item  do |f|
-    
-    
-    = f.input :name
-    
+= simple_form_for @item, :url => @item.new? ? <%= plural_file_name %>_path : @item  do |f|
+
+<% attributes.each do |attribute| -%>
+    = f.input :<%= attribute.name %>
+<% end %>
     %br
     = f.submit 'Save', :class => 'aSubmit aS_ok right'
