@@ -24,6 +24,14 @@ Run:
 Usage
 -----
 
+####  New!!! Use scaffold!
+
+    rails g crud:scaffold model param1:string param2:string
+
+
+
+#### Old way:
+
 Simply put `crud` on your controller:
 
     class JelliesController < ApplicationController
