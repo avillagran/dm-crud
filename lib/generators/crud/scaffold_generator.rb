@@ -13,9 +13,6 @@ module Crud
 
 
         def scaffold
-            puts "Filename: #{file_name}"
-            puts "Classname: #{class_name}"            
-            puts "Attributes: #{attributes.inspect}"
             template 'model.rb', "app/models/#{file_name}.rb"
             template 'controller.rb', "app/controllers/#{plural_file_name}_controller.rb"
 
