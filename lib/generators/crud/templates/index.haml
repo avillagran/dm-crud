@@ -20,7 +20,7 @@
             %tr
                 %td= i.id
 <% attributes.each do |attribute| -%>
-                %td <%= attribute.name -%>
+                %td <%= attribute.name %>
 <% end %>
                 %td
                     .right
@@ -28,7 +28,7 @@
                     .right
                         = link_to 'Edit', edit_<%= singular_table_name %>_path(i)
                         |
-                        = link_to 'Show'. <%= singular_table_name %>_path(i)
+                        = link_to 'Show', <%= singular_table_name %>_path(i)
                     
 
 :javascript
