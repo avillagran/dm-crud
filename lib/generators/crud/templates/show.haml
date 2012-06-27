@@ -4,5 +4,8 @@
             <%= human_name %>
 
 
-Name:
-= @item.name
+<% attributes.each do |attribute| -%>
+<%= attribute.name.titleize %>: 
+= @item.<%= attribute.name %>
+%br
+<% end %>

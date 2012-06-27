@@ -14,7 +14,7 @@ Add dm-crud to Gemfile:
     # Gemfile
     source "http://rubygems.org"
     gem 'rails',   '>= 3.0.0'        
-    gem 'dm-crud', :git => 'http://github.com/avillagran/dm-crud'
+    gem 'dm-crud', '0.0.3', git: 'http://github.com/avillagran/dm-crud'
 
 Run:
 
@@ -26,9 +26,17 @@ Usage
 
 ####  New!!! Use scaffold!
 
-    rails g crud:scaffold model param1:string param2:string
+Generate model, controller and views:
 
+    rails g crud:scaffold model all param1:string param2:string
 
+Controller and views:
+
+    rails g crud:scaffold product controller-view name:string stock:integer
+
+Only model:
+
+    rails g crud:scaffold product model name:string stock:integer
 
 #### Old way:
 

@@ -14,13 +14,14 @@
 <% attributes.each do |attribute| -%>
             %th <%= attribute.name.titleize %>
 <% end %>
+            %th Actions
 
     %tbody
         - @items.each do |i|
             %tr
                 %td= i.id
 <% attributes.each do |attribute| -%>
-                %td <%= attribute.name %>
+                %td= i.<%= attribute.name %>
 <% end %>
                 %td
                     .right
