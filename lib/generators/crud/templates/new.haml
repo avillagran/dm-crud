@@ -1,5 +1,4 @@
-#mainTitle.col7
-    %h3
-        %span New <%= human_name %>
+.sectionHeader
+    %h1 #{t 'crud.new', default: 'New'} <%= human_name %>
 
-= render :partial => 'form'
+= render partial: 'form'

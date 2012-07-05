@@ -1,20 +1,16 @@
-#mainTitle.col16
-    %h3
-        %span 
-            List of <%= human_name %>
-
-.tableOptions.clearfix
-    = link_to 'New', new_<%= singular_table_name %>_path, class: "aButton right"
+.sectionHeader
+    %h1 #{t 'crud.list_of', default: 'List of'} <%= human_name %>
+    = link_to "#{t('crud.new', default: 'New')} <%= singular_table_name %>", new_<%= singular_table_name %>_path, class: "btn btn-primary"
 
 
-%table#example.display
+%table#example.table
     %thead
         %tr
             %th ID
 <% attributes.each do |attribute| -%>
             %th <%= attribute.name.titleize %>
 <% end %>
-            %th Actions
+            %th= t 'crud.actions', default: 'Actions'
 
     %tbody
         - @items.each do |i|
@@ -24,14 +20,10 @@
                 %td= i.<%= attribute.name %>
 <% end %>
                 %td
-                    .right
-                        = button_to 'Delete', i, :confirm => "Are you sure?", method: :delete
-                    .right
-                        = link_to 'Edit', edit_<%= singular_table_name %>_path(i)
-                        |
-                        = link_to 'Show', <%= singular_table_name %>_path(i)
-                    
-
+                    = link_to t('crud.show', default: 'Show'), <%= singular_table_name %>_path(i), class: 'btn'
+                    = link_to t('crud.edit', default: 'Edit'), edit_<%= singular_table_name %>_path(i), class: 'btn btn-warning'
+                    = button_to t('crud.delete', default: 'Delete'), i, :confirm => t('crud.confirm', default: 'Are you sure?'), method: :delete, class: 'btn btn-danger'
+                        
 :javascript
     $(document).ready(function(){
         $('#example').dataTable({"bJQueryUI": true, "sPaginationType": "full_numbers", "iDisplayLength": 25, "oLanguage": {
